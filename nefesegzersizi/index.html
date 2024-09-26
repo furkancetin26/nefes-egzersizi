@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Nefes Egzersizi</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    </head>
+    <body class="bg-primary">
+        <style>
+            .dot {
+                height: 100px;
+                width: 100px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                position: relative;
+            }
+
+            .dot2 {
+                height: 75px;
+                width: 75px;
+                background-color: rgb(60, 60, 223);
+                border-radius: 50%;
+                position: absolute;
+                top: 12.5px; /* Ortalamak için büyük dairenin boyutundan küçük daireyi çıkarıp 2'ye böldük */
+                left: 12.5px; /* Aynı şekilde sağdan ve soldan ortaladık */
+                transition: all 3s ease-in-out;
+            }
+            .shrink{
+                transform: scale(0.1);
+            }
+        </style>
+        <header>
+            
+        </header>
+        <main>
+            <div class="container text-center">
+                <h1>NEFES EGZERSİZİ</h1>
+                <span class="dot">
+                    <span class="dot2" id="circle"></span>
+                </span>
+                <p id="p">1 dakikalik nefes egzersizi</p>
+            </div>
+        </main>
+        <footer>
+
+        </footer>
+        <script>
+            const circle = document.getElementById('circle');
+
+            circle.addEventListener('click', () => {
+                
+                for (let i = 0; i < 5; i++) {
+                    setTimeout(() => {
+                        circle.classList.add('shrink');
+                        document.getElementById('p').innerHTML = "nefesini ver";
+                        setTimeout(() => {
+                            circle.classList.remove('shrink');
+                            document.getElementById('p').innerHTML = "nefes al";
+                        }, 3000); // Animasyonun süresine uygun olarak ayarlandı
+                    }, i * 6000); // Her animasyon döngüsü 1.2 saniye arayla başlatılıyor   
+                }
+            });
+            
+        </script>
+    </body>
+</html>
